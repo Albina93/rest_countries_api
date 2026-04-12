@@ -2,7 +2,7 @@ import { getAllCountries } from "./api.js";
 
 const container = document.getElementById("country_list_container");
 const row = document.createElement("div");
-row.className = "row g-4 mt-3";
+row.className = "row g-4 mt-3 w-100";
 container.appendChild(row);
 
 //Grabbing my div dropdown elements
@@ -11,7 +11,7 @@ const dropdownOptions = document.querySelector(".dropdown-options");
 const options = document.querySelectorAll(".dropdown-options div");
 
 // grabbing the search input
-// const searchInput = document.getElementById("search_input");
+const searchInput = document.getElementById("search_input");
 
 // empty array to store all countries
 let countriesData = [];
@@ -75,6 +75,22 @@ async function displayAllCountries() {
       );
       renderCountries(filtered);
     });
+  });
+
+  // Listening for user typing in the search input field
+  searchInput.addEventListener("input", (e) => {
+    const searchVal = e.target.value.toLowerCase().trim();
+    console.log("searchValue:", `"${searchVal}"`);
+
+    if (searchVal === "") {
+      renderCountries(countriesData);
+      return;
+    }
+    const filtered = countriesData.filter((country) => {
+      return country.name.common.toLowerCase().includes(searchVal);
+    });
+
+    renderCountries(filtered);
   });
 }
 

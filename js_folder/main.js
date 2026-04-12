@@ -5,16 +5,24 @@ const row = document.createElement("div");
 row.className = "row g-4 mt-3";
 container.appendChild(row);
 
+//Grabbing my div dropdown elements
+const selected = document.querySelector(".dropdown-selected");
+const dropdownOptions = document.querySelector(".dropdown-options");
+const options = document.querySelectorAll(".dropdown-options div");
+
+// grabbing the search input
+// const searchInput = document.getElementById("search_input");
+
 // empty array to store all countries
 let countriesData = [];
 
-async function displayAllCountries() {
-  const countries = await getAllCountries();
-  // console.log(countries);
-  countriesData = countries; // store all countries in the array
+// Separated into its own function so we can call it anytime with any array
+function renderCountries(countries) {
+  //clear the row first to avoid duplicates stacking up
+  row.innerHTML = "";
 
   // need to loop through the each country in that array
-  countriesData.forEach((country) => {
+  countries.forEach((country) => {
     const col = document.createElement("div");
     col.className = "col-md-3 mb-3";
 
@@ -36,4 +44,38 @@ async function displayAllCountries() {
     row.appendChild(col);
   });
 }
+
+async function displayAllCountries() {
+  const countries = await getAllCountries();
+  // console.log(countries);
+  countriesData = countries; // store all countries in the array
+
+  // show all countries
+  renderCountries(countriesData);
+
+  // toggle dropdown open/close
+  selected.addEventListener("click", () => {
+    dropdownOptions.classList.toggle("open");
+  });
+
+  // when user clicks a region option
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      const selectedRegion = option.textContent.trim(); // trim() removes any extra whitespace from start to end
+
+      // update dropdown label to show selected region
+      selected.firstChild.textContent = selectedRegion;
+
+      // close the dropdown
+      dropdownOptions.classList.remove("open");
+
+      // filter the countries by selected region
+      const filtered = countriesData.filter(
+        (country) => country.region === selectedRegion,
+      );
+      renderCountries(filtered);
+    });
+  });
+}
+
 displayAllCountries();

@@ -24,17 +24,17 @@ function renderCountries(countries) {
   // need to loop through the each country in that array
   countries.forEach((country) => {
     const col = document.createElement("div");
-    col.className = "col-md-3 mb-3";
+    col.className = "col-12 col-md-3 mb-3";
 
     // Clicking this link navigates to country detail page
     // encodeURIComponent makes the country name URL safe, URLs can't have space
     col.innerHTML = `
     <a class="card_link" href="country.html?name=${encodeURIComponent(country.name.common)}"> 
-     <div class="card h-100 border border-success">
+     <div class="card h-100">
       <img class="card-img-top" src="${country.flags.svg}" alt="${country.flags.alt}" />
       <div class="card-body">
         <h5 class="card-title"><strong>${country.name.common}</strong></h5>
-        <p class="card-text"><strong>Population:</strong> ${country.population.toLocaleString()}</p>  
+        <p class="card-text mt-4"><strong>Population:</strong> ${country.population.toLocaleString()}</p>  
         <p class="card-text"><strong>Capital:</strong> ${country.capital?.[0]}</p>
         <p class="card-text"><strong>Region:</strong> ${country.region}</p>
       </div>
@@ -80,7 +80,7 @@ async function displayAllCountries() {
   // Listening for user typing in the search input field
   searchInput.addEventListener("input", (e) => {
     const searchVal = e.target.value.toLowerCase().trim();
-    console.log("searchValue:", `"${searchVal}"`);
+    // console.log("searchValue:", `"${searchVal}"`);
 
     if (searchVal === "") {
       renderCountries(countriesData);

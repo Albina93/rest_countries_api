@@ -32,7 +32,7 @@ async function displayCountryDetail() {
       .map(
         (bc) =>
           `
-          <a href="country.html?name=${encodeURIComponent(bc.name.common)}" class="btn btn-success me-2 mb-2">
+          <a href="country.html?name=${encodeURIComponent(bc.name.common)}" class="btn btn-primary me-2 mb-2">
           ${bc.name.common}
         </a>`,
       )

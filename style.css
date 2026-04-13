@@ -4,6 +4,90 @@
   padding: 0;
   box-sizing: border-box;
 }
+.welcome_page {
+  min-height: 100vh;
+  background-image: url("./images/map.avif");
+  background-size: cover;
+  background-position: center;
+}
+.welcome_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  position: relative;
+}
+
+.welcome_title {
+  font-size: 3rem;
+  font-family: fantasy;
+  font-weight: 600;
+  color: hsl(0, 81%, 61%);
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+}
+
+.welcome_description {
+  color: hsl(0, 75%, 59%);
+  font-size: 14px;
+  max-width: 380px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+.welcome_info {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info_card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem 1.1rem;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.info_number {
+  color: hsl(200, 15%, 8%);
+  font-size: 18px;
+  font-weight: 600;
+}
+.info_label {
+  color: hsl(0, 1%, 34%);
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.explore_btn {
+  background: hsl(207, 26%, 17%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 0.9rem 2.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.explore_btn:hover {
+  background: hsl(209, 23%, 30%);
+  color: white;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .welcome_title {
+    font-size: 2rem;
+  }
+}
 
 body {
   font-family: "Nunito Sans", sans-serif;
@@ -51,7 +135,7 @@ i {
 
 .user_inputs .search_box {
   border-radius: 8px;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
 }
 .user_inputs .search_box i {
   padding: 0.8rem 1rem;
@@ -74,7 +158,7 @@ i {
 .dropdown-selected {
   background-color: hsl(0, 100%, 100%);
   color: hsl(200, 15%, 8%);
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   padding: 15px;
   border-radius: 4px;
   cursor: pointer;
@@ -88,7 +172,7 @@ i {
   width: 100%;
   background-color: hsl(0, 100%, 100%);
   color: hsl(200, 15%, 8%);
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   border-radius: 6px;
   display: none;
   flex-direction: column;

@@ -34,7 +34,10 @@
     <header>
       <nav class="nav_container">
         <div class="logo">
-          <h6><i class="fa-solid fa-globe"></i>Where in the world?</h6>
+          <h6>
+            <a href="./welcome.html"><i class="fa-solid fa-globe"></i></a>Where
+            in the world?
+          </h6>
         </div>
         <button id="dark_mode_btn" class="dark_mode">
           <i class="fa-regular fa-moon"></i> Dark mode
@@ -49,9 +52,10 @@
             type="text"
             id="search_input"
             placeholder="Search for a country..."
+            aria-label="Search for a country"
           />
         </div>
-        <div class="dropdown">
+        <div class="dropdown" aria-label="Filter by region">
           <div class="dropdown-selected">
             Filter by Region
             <i class="fa-solid fa-angle-down"></i>

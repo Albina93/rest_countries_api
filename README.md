@@ -64,7 +64,7 @@ rest_countries_api/
 
 ## What I learned
 
-- Working with a real public REST API using 'fetch' and 'async/awai'
+- Working with a real public REST API using 'fetch' and 'async/await'
 - Import and exports across multiple JS files
 - Passing data between pages using URL query strings
 - Building a fully responsive layout with CSS and Bootstrap

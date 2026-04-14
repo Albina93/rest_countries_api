@@ -56,7 +56,7 @@ async function displayCountryDetail() {
         <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
         <p><strong>Region:</strong> ${country.region}</p>
         <p><strong>Subregion:</strong> ${country.subregion}</p>
-        <p><strong>Capital:</strong> ${country.capital?.[0]}</p>
+        <p><strong>Capital:</strong> ${country.capital}</p>
         <p><strong>Languages:</strong> ${Object.values(country.languages || {}).join(", ")}</p>
         <div class="mt-3">
           <strong>Border Countries:</strong>

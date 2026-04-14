@@ -16,7 +16,6 @@ const searchInput = document.getElementById("search_input");
 // empty array to store all countries
 let countriesData = [];
 
-// Separated into its own function so we can call it anytime with any array
 function renderCountries(countries) {
   //clear the row first to avoid duplicates stacking up
   row.innerHTML = "";
@@ -35,7 +34,7 @@ function renderCountries(countries) {
       <div class="card-body">
         <h5 class="card-title"><strong>${country.name.common}</strong></h5>
         <p class="card-text mt-4"><strong>Population:</strong> ${country.population.toLocaleString()}</p>  
-        <p class="card-text"><strong>Capital:</strong> ${country.capital?.[0]}</p>
+        <p class="card-text"><strong>Capital:</strong> ${country.capital}</p>
         <p class="card-text"><strong>Region:</strong> ${country.region}</p>
       </div>
     </div>
